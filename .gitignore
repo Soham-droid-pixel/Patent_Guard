@@ -1,0 +1,266 @@
+# ===========================
+# Python
+# ===========================
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ===========================
+# Environment & Secrets
+# ===========================
+# CRITICAL: Never commit these!
+.env
+.env.local
+.env.*.local
+*.env
+
+# Service account credentials
+*service-account*.json
+*credentials*.json
+*key*.json
+gcloud-credentials.json
+
+# API Keys (just in case)
+*apikey*
+*api-key*
+*secret*
+
+# ===========================
+# Google Cloud
+# ===========================
+# Application default credentials
+application_default_credentials.json
+
+# gcloud config
+.gcloud/
+.config/gcloud/
+
+# ===========================
+# Pinecone
+# ===========================
+# Any Pinecone specific files
+pinecone-*.json
+
+# ===========================
+# Node.js / Frontend
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Production build
+frontend/dist/
+frontend/build/
+
+# ===========================
+# IDE / Editor
+# ===========================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ===========================
+# OS Files
+# ===========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+
+# ===========================
+# Logs & Databases
+# ===========================
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Log files
+logs/
+*.log.*
+
+# ===========================
+# Testing & Coverage
+# ===========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ===========================
+# Jupyter Notebooks
+# ===========================
+.ipynb_checkpoints/
+*.ipynb
+
+# ===========================
+# Models & Data
+# ===========================
+# Large model files (if any)
+*.h5
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+
+# Dataset files
+datasets/
+data/
+*.csv
+*.tsv
+*.parquet
+
+# Embeddings cache
+.cache/
+.sentence_transformers/
+
+# ===========================
+# Temporary Files
+# ===========================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.*.swp
+
+# ===========================
+# Build & Compiled
+# ===========================
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.out
+
+# ===========================
+# Documentation Build
+# ===========================
+docs/_build/
+site/
+
+# ===========================
+# Frontend Specific
+# ===========================
+# Vite
+.vite/
+frontend/.vite/
+
+# Environment
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# ===========================
+# Backend Specific
+# ===========================
+# FastAPI / Uvicorn
+backend/.env
+backend/.env.local
+backend/logs/
+
+# ===========================
+# Scripts Output
+# ===========================
+scripts/output/
+scripts/*.csv
+scripts/*.json
+scripts/logs/
+
+# ===========================
+# Git
+# ===========================
+*.orig
+*.rej
+
+# ===========================
+# Sensitive Data Patterns
+# ===========================
+# Catch any file with 'secret', 'password', 'token' in name
+*secret*
+*password*
+*token*
+*private*
+
+# ===========================
+# Project Specific
+# ===========================
+# Any downloaded patent data
+patents.json
+patent_data/
+
+# Pinecone index backups
+pinecone_backup/
+
+# Test results
+test_results/
+
+# ===========================
+# Keep These (examples only)
+# ===========================
+!.env.example
+!.gitkeep
