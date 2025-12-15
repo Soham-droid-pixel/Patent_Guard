@@ -1,6 +1,24 @@
 const ResultsDisplay = ({ results }) => {
   if (!results) return null;
 
+  // Helper function to extract text from potentially stringified JSON
+  const getAnalysisText = (analysis) => {
+    if (typeof analysis === 'string') {
+      // Check if it's a JSON string
+      if (analysis.trim().startsWith('{') && analysis.trim().endsWith('}')) {
+        try {
+          const parsed = JSON.parse(analysis);
+          return parsed.analysis || parsed.conflict_analysis || analysis;
+        } catch (e) {
+          // Not valid JSON, return as is
+          return analysis;
+        }
+      }
+      return analysis;
+    }
+    return typeof analysis === 'object' ? JSON.stringify(analysis, null, 2) : String(analysis);
+  };
+
   const getRiskColor = (riskLevel) => {
     switch (riskLevel.toLowerCase()) {
       case 'high':
@@ -49,7 +67,7 @@ const ResultsDisplay = ({ results }) => {
           <span>📋</span> Conflict Analysis
         </h3>
         <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-          {results.analysis}
+          {getAnalysisText(results.analysis)}
         </p>
       </div>
 

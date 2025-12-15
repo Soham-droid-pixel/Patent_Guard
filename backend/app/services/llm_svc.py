@@ -16,6 +16,30 @@ class LLMService:
         self.client = Groq(api_key=settings.groq_api_key)
         self.model = settings.groq_model
     
+    def _clean_json_response(self, response_text: str) -> str:
+        """Clean markdown code blocks from LLM response.
+        
+        Args:
+            response_text: Raw response from LLM
+            
+        Returns:
+            Cleaned JSON string
+        """
+        # Remove markdown code blocks
+        cleaned = response_text.strip()
+        
+        # Remove ```json at start
+        if cleaned.startswith('```json'):
+            cleaned = cleaned[7:]
+        elif cleaned.startswith('```'):
+            cleaned = cleaned[3:]
+        
+        # Remove ``` at end
+        if cleaned.endswith('```'):
+            cleaned = cleaned[:-3]
+        
+        return cleaned.strip()
+    
     def analyze_patents(
         self, 
         user_idea: str, 
@@ -66,16 +90,23 @@ class LLMService:
             )
             
             response_text = chat_completion.choices[0].message.content
+            logger.info(f"Raw LLM response: {response_text[:200]}...")
+            
+            # Clean the response: remove markdown code blocks if present
+            cleaned_response = self._clean_json_response(response_text)
+            logger.info(f"Cleaned response: {cleaned_response[:200]}...")
             
             # Try to parse JSON response
             try:
-                analysis = json.loads(response_text)
-            except json.JSONDecodeError:
+                analysis = json.loads(cleaned_response)
+                logger.info(f"Successfully parsed JSON. Risk level: {analysis.get('risk_level')}")
+            except json.JSONDecodeError as e:
                 # If not valid JSON, create structured response
-                logger.warning("LLM response was not valid JSON, creating structured response")
+                logger.warning(f"LLM response was not valid JSON: {e}")
+                logger.warning(f"Response text: {cleaned_response}")
                 analysis = {
                     "risk_level": "Medium",
-                    "analysis": response_text,
+                    "analysis": cleaned_response,
                     "conflicting_patents": [p.get('metadata', {}).get('publication_number', '') 
                                           for p in retrieved_patents[:3]],
                     "recommendations": "Please consult with a patent attorney for detailed analysis."

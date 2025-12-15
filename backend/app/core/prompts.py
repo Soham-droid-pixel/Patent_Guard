@@ -21,12 +21,19 @@ TASK:
    - What aspects of the invention appear novel
    - Recommendations for the inventor
 
-FORMAT YOUR RESPONSE AS JSON:
+CRITICAL: You MUST respond with ONLY valid JSON. Do NOT wrap your response in markdown code blocks or backticks.
+Do NOT include ```json or ``` in your response.
+
+FORMAT YOUR RESPONSE EXACTLY LIKE THIS (raw JSON only):
 {{
-  "risk_level": "High/Medium/Low",
+  "risk_level": "High",
   "analysis": "Your detailed analysis here...",
-  "conflicting_patents": ["Patent numbers that pose risk"],
+  "conflicting_patents": ["US-123456-A1", "US-789012-A1"],
   "recommendations": "Brief recommendations for the inventor"
 }}
 
-Be professional, precise, and helpful. Focus on actionable insights."""
+IMPORTANT RULES:
+- risk_level must be exactly one of: "High", "Medium", or "Low" (capitalize first letter)
+- Start your response with {{ and end with }}
+- No markdown formatting, no code blocks, no backticks
+- Be professional, precise, and helpful. Focus on actionable insights."""
