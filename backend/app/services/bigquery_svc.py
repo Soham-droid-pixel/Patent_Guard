@@ -22,9 +22,20 @@ class BigQueryService:
             
             # Try as absolute path first
             if not os.path.isabs(cred_path):
-                # Make it relative to the project root (parent of backend)
-                backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                project_root = os.path.dirname(backend_dir)
+                # Find project root by looking for backend folder
+                # Start from current file location and go up until we find the project root
+                current_file = os.path.abspath(__file__)
+                current_dir = os.path.dirname(current_file)
+                
+                # Go up directories until we find a directory containing 'scripts' folder
+                project_root = current_dir
+                while project_root != os.path.dirname(project_root):  # Not at filesystem root
+                    parent = os.path.dirname(project_root)
+                    if os.path.exists(os.path.join(parent, 'scripts')) and os.path.exists(os.path.join(parent, 'backend')):
+                        project_root = parent
+                        break
+                    project_root = parent
+                
                 cred_path = os.path.join(project_root, cred_path)
             
             if os.path.exists(cred_path):
