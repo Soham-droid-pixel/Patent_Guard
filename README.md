@@ -12,6 +12,7 @@
 [![React 19](https://img.shields.io/badge/react-19-61DAFB.svg)](https://reactjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688.svg)](https://fastapi.tiangolo.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Demo Video](https://img.shields.io/badge/LinkedIn-Demo%20Video-0077B5.svg)](https://drive.google.com/file/d/1pLPW-ewVaMg6JQ07UvvtaIeaJ_xkJS6B/view?usp=sharing)
 
 [Features](#-features) • [Demo](#-demo) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [API](#-api-reference) • [Contributing](#-contributing)
 
