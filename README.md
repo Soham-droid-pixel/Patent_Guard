@@ -155,17 +155,6 @@ PatentGuard uses **semantic understanding** rather than keyword matching:
 - Uses **sentence-transformers** for 384-dimensional vector embeddings
 - **Groq's Llama 3.3 70B** analyzes semantic conflicts and provides expert-level risk assessment
 
-### Try It Yourself!
-The UI includes **interactive example queries** covering various domains:
-- 📱 Smart Home & IoT
-- 🏥 Health Wearables
-- 🌱 Smart Agriculture
-- 🔐 Blockchain Security
-- 🎵 Consumer Electronics
-- 🌿 Indoor Gardening
-
----
-
 ## 🚀 Tech Stack (100% Free Tier)
 
 <table>
